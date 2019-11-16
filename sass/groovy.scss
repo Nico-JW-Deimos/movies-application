@@ -1,0 +1,133 @@
+///////////////////////////////////////////////////////////////////////////////
+/////////////MOBILE RESPONSIVE////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: 767px) { @content; }
+  }
+
+  @else if $class == sm {
+    @media (min-width: 768px) { @content; }
+  }
+
+  @else if $class == md {
+    @media (min-width: 992px) { @content; }
+  }
+
+  @else if $class == lg {
+    @media (min-width: 1200px) { @content; }
+  }
+
+  @else {
+    @warn "Breakpoint mixin supports: xs, sm, md, lg";
+  }
+}
+///////////////////////////////////////////////////////////////////////////////
+/////////////CSS///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+html, body {
+  background-image: linear-gradient(#F4A126, #E5771C);
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+
+}
+
+.container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-100%);
+  text-align: center;
+}
+///////////////////////////////////////////////////////////////////////////////
+/////////////HEADER///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+.nav-wrapper{
+  background-color: #5a3d2b;
+  text-align: center;
+}
+#logo{ //Picture with text 'groovy movies'
+  margin-top: 3%;
+  display: inline-block;
+  width: 100%;
+}
+.nav-extended{
+  margin-bottom: 50px;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+////////SEARCH BAR////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+
+.search-form {
+  --searchButtonWidth: 100px !important;
+  height: 50px !important;
+  max-width: 500px !important;
+  margin: 0 auto !important;
+  overflow: hidden !important;
+  position: relative !important;
+  border-radius: 8px !important;
+}
+.search-input {
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0.5rem calc(var(--searchButtonWidth) + 0.5rem) 0.5rem 0.5rem !important;
+  border-radius: 8px !important;
+  width: 100% !important;
+  background: #ffecb5 !important;
+  -webkit-appearance: none !important;
+}
+.search-input:focus {
+  outline: 0 !important;
+  background: white !important;
+}
+.search-input:not(:placeholder-shown) ~ .search-button {
+  transform: translateX(calc(-1 * var(--searchButtonWidth))) !important;
+}
+.search-button {
+  border: 0 !important;
+  padding: 0.5rem !important;
+  border-radius: 8px !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 100% !important;
+  width: var(--searchButtonWidth) !important;
+  transition: 0.2s !important;
+  background: #75c7ae !important;
+  color: #ffecb5 !important;
+  height: 100% !important;
+}
+.search-button:focus {
+  outline: 0 !important;
+  background: #222 !important;
+}
+.screen-reader-text {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+.material-icons{
+  font-size: 40px !important;
+}
+///////////////////////////////////////////////////////////////////////////////
+////////MOVIE CARDS///////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+#cards {
+  display: flex;
+  margin-top: 2%;
+}
+
+.card {
+  height: 400px;
+  margin: auto;
+  width: 25%;
+  padding: 10px;
+  box-shadow: black 2px 2px 2px;
+}

@@ -18,6 +18,8 @@ import 'materialize-css/dist/js/materialize.js'
 import 'materialize-css/js/sidenav.js'
 import M from 'materialize-css/dist/js/materialize.js'
 
+///////////API KEY///////////////////////////////////
+const key = 'http://www.omdbapi.com/?apikey=782d1187&t=';
 
 const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
 
@@ -109,6 +111,26 @@ deleteMovie(4).then(getMovies).then((movies) => {
     console.log(error);
 });
 
+
+/////////////////////////////////
+////////SEARCH FEATURE//////////
+///////////////////////////////
+$(document).ready(function () {
+    $('#search-button').click(function () {
+        let input = $("#search").val();
+        $('#search').html("");
+        fetch(key + input)
+            .then((success) => {
+                success.json()
+            })
+            .then((movies) => {
+                console.log(movies)
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    });
+});
 
 
 
