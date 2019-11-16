@@ -30,6 +30,20 @@ var instances = M.Sidenav.init(elems);
 // $('.sidenav').sidenav();
 //
 // })
+$(document).ready(function () {
+    // $('#logo').click().css('padding', '4em')
+});
+
+
+// renderMovies()
+//     .then((movie) => {
+//         let html = '<div class="coffee-card card d-flex align-items-center border-0 m-2">';
+//         html += '<div class="card-body m-3 w-100 d-flex justify-content-center "><img src="img/bean.png" height="50px" alt="">' + '</div>';
+//         html += '<span>' + movie.title + '</span>';
+//         html += '<span>' + movie.rating + '</span>';
+//         html += '</div>';
+//         return html;
+//     });
 
 ////////////////////////
 //////GET MOVIES////////
