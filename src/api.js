@@ -34,5 +34,10 @@ module.exports = {
         'Content-Type': 'application/json',
       },
     })
+  },
+  getMovieKey : () => {
+    return fetch('http://www.omdbapi.com/?apikey=ffbdb1fc&')
+        .then(response => response.json())
   }
+
 };

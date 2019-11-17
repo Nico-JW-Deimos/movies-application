@@ -19,9 +19,9 @@ import 'materialize-css/js/sidenav.js'
 import M from 'materialize-css/dist/js/materialize.js'
 
 ///////////API KEY///////////////////////////////////
-const key = 'http://www.omdbapi.com/?apikey=782d1187&t=';
+// const key = 'http://www.omdbapi.com/?apikey=782d1187&t=';
 
-const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
+const {getMovieKey, getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
 
 var elems = document.querySelectorAll('.sidenav');
 var instances = M.Sidenav.init(elems);
@@ -30,9 +30,11 @@ var instances = M.Sidenav.init(elems);
 // $('.sidenav').sidenav();
 //
 // })
-// $(document).ready(function () {
-//     // $('#logo').click().css('padding', '4em')
-// });
+
+
+$(document).ready(function () {
+    // $('#logo').click().css('padding', '4em')
+});
 
 
 // renderMovies()
@@ -83,7 +85,7 @@ getMovie(1)
 createMovie({
 
 }).then(getMovies).then((movies) => {
-    console.log('Here are all the movies: ');
+    // console.log('Here are all the movies: ' + movies);
     movies.forEach(({title, rating}) => {
         console.log(`title:${title} - rating: ${rating}`);
     });
@@ -101,7 +103,7 @@ patchMovie({
     "title": "Darjeeling Limited",
     "rating": "5"
 }, 3).then(getMovies).then((movies) => {
-    console.log('Here are all the books:');
+    console.log('Here are all the movies:');
     movies.forEach(({title, rating}) => {
         console.log(`${title}, ${rating}`);
     });
@@ -125,6 +127,17 @@ deleteMovie(4).then(getMovies).then((movies) => {
     console.log(error);
 });
 
+
+getMovieKey()
+    .then((movies) => {
+        console.log('Here are all the movies:');
+        movies.forEach(({title, rating, id}) => {
+            console.log(`id#${id} - ${title} - rating: ${rating}`);
+        });
+    }).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
+});
 
 /////////////////////////////////
 ////////SEARCH FEATURE//////////
