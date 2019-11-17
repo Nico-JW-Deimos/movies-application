@@ -30,9 +30,9 @@ var instances = M.Sidenav.init(elems);
 // $('.sidenav').sidenav();
 //
 // })
-$(document).ready(function () {
-    // $('#logo').click().css('padding', '4em')
-});
+// $(document).ready(function () {
+//     // $('#logo').click().css('padding', '4em')
+// });
 
 
 // renderMovies()
@@ -138,7 +138,17 @@ $(document).ready(function () {
                 success.json()
             })
             .then((movies) => {
-                console.log(movies)
+                console.log(movies);
+                let content = "<div class='card'>";
+                content += '<img id="logo" src= "'+ movies.poster + '" alt="">';
+                content += movies.title;
+                content += '<br>';
+                content += movies.released;
+                content += '<br>';
+                content += movies.plot;
+                content += "</div>";
+
+                $('#card').append(content);
             })
             .catch((error) => {
                 console.log(error)
