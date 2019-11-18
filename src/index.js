@@ -13,10 +13,10 @@
 
 const $ = require('jquery');
 
-import 'materialize-css/dist/css/materialize.min.css'
-import 'materialize-css/dist/js/materialize.js'
-import 'materialize-css/js/sidenav.js'
-import M from 'materialize-css/dist/js/materialize.js'
+// import 'materialize-css/dist/css/materialize.min.css'
+// import 'materialize-css/dist/js/materialize.js'
+// import 'materialize-css/js/sidenav.js'
+// import M from 'materialize-css/dist/js/materialize.js'
 
 ///////////API KEY///////////////////////////////////
 // const omdb = `http://www.omdbapi.com/?&apikey=782d1187t=`;

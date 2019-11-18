@@ -28,12 +28,12 @@
     {
       "id": 6,
       "title": "Persepolis",
-      "rating": "3"
+      "rating": "4"
     },
     {
       "id": 7,
       "title": "Good Fellas",
-      "rating": "3"
+      "rating": "5"
     },
     {
       "id": 8,
@@ -52,7 +52,7 @@
     },
     {
       "id": 11,
-      "title": "Brother Where Art Thou",
+      "title": "Oh Brother Where Art Thou",
       "rating": "5"
     }
   ]
