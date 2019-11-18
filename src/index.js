@@ -143,15 +143,17 @@ createMovie({
 ///////////////////////
 
 
-// deleteMovie(4).then(getMovies).then((movies) => {
-//     console.log('Here are all the movies:');
-//     movies.forEach(({title, rating}) => {
-//         console.log(`${title} ${rating}`);
-//     });
-// }).catch((error) => {
-//     alert('Oh no! Something went wrong.\nCheck the console for details.');
-//     console.log(error);
-// });
+deleteMovie().then(getMovies).then((movies) => {
+    console.log('Here are all the movies:');
+    movies.forEach(({title, rating}) => {
+        console.log(`${title} ${rating}`);
+    });
+    addDeleteBtnListener();
+
+}).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
+});
 
 
 /////////////////////////////////
@@ -184,6 +186,18 @@ createMovie({
 //             });
 //     });
 // });
+
+/////////////////////////////////
+////////DELETE FEATURE//////////
+///////////////////////////////
+
+const addDeleteBtnListener = function() {
+    $('.trash').click(function () {
+        $('.cardOne').hide();
+        deleteMovie(parseInt($(this).attr('id')))
+    });
+
+};
 
 
 
