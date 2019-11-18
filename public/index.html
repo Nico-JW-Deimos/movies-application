@@ -10,27 +10,24 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import normal CSS-->
     <link rel="stylesheet" href="groovy.css"/>
-
     <title>Groovy Movies</title>
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-
 </head>
 <body>
-<!--navbar-->
+<!------------------------------------------navbar----------------------------------------------------------------------->
 <nav class="nav-extended">
     <div class="nav-wrapper">
         <img id="logo" src="img/groovyMovies.png" alt="">
     </div>
 </nav>
 <form onsubmit="event.preventDefault();" action="" class="search-form">
-    <label for="title" class="screen-reader-text">Search</label>
+    <label for="title" class="screen-reader-text">Add a movie</label>
 
     <input name="title" id="title"
-           type="search" class="search-input" placeholder="Search for a movie">
+           type="search" class="search-input" placeholder="Add a movie">
     <button class="search-button"><i class="material-icons">local_movies</i></button>
 </form>
-<button id="create">Create Movie</button>
-
+<!--cards------------------------------------------------------------------------------------------------------------->
 <div id="card-container">
     <div class="card">
         <h6>Casablanca</h6>
@@ -51,7 +48,7 @@
         </div>
     </div>
     <div class="card">
-        <h6>Darjeeling Limited</h6>
+        <h6>The Darjeeling Limited</h6>
         <img src="img/darj.jpg" alt="">
         <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>
         <div class="buttons">
