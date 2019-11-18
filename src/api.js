@@ -4,29 +4,29 @@ module.exports = {
       .then(response => response.json());
   },
 
-  getMovie: (id) => {
-    return fetch(`/api/movies/${id}`)
-        .then(response => response.json())
-  },
-  //
-  // createMovie: (movie) => {
-  //   return fetch('/api/movies', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/db.json'
-  //     },
-  //     body: JSON.stringify(movie)
-  //   })
+  // getMovie: (id) => {
+  //   return fetch(`/api/movies/${id}`)
+  //       .then(response => response.json())
   // },
-  patchMovie : (movie, id) => {
-    return fetch(`api/movies/${id}`, {
-      method: 'PATCH',
+
+  createMovie: (movie) => {
+    return fetch(`/api/movies/`, {
+      method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(movie),
     })
-  },
+  }
+  // patchMovie : (movie, id) => {
+  //   return fetch(`api/movies/${id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(movie),
+  //   })
+  // },
   // deleteMovie : (id) => {
   //   return fetch(`api/movies/${id}`, {
   //     method: 'DELETE',

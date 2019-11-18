@@ -27,13 +27,8 @@ const $ = require('jquery');
 
 const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
 
-var elems = document.querySelectorAll('.sidenav');
-var instances = M.Sidenav.init(elems);
-
-
-
-
-// $('#logo').click().css('padding', '4em');
+// var elems = document.querySelectorAll('.sidenav');
+// var instances = M.Sidenav.init(elems);
 
 
 ////////////////////////
@@ -56,31 +51,73 @@ getMovies()
 //////GET ONE MOVIE/////
 ////////////////////////
 
-getMovie(1)
-    .then((movie) => {
-        // console.log('Here is the first movie: ');
-        console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
-
-    })
-    .catch((error) => {
-        alert('Oh no! Something went wrong.\nCheck the console for details.');
-        console.log(error);
-    });
+// getMovie(1)
+//     .then((movie) => {
+//         // console.log('Here is the first movie: ');
+//         console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
+//
+//     })
+//     .catch((error) => {
+//         alert('Oh no! Something went wrong.\nCheck the console for details.');
+//         console.log(error);
+//     });
 
 ///////////////////////
 //////CREATE MOVIE/////
 ///////////////////////
+$('.search-button').click(function(){
+    let title = $('.title').val();
+createMovie({
 
-// createMovie({
-//
-// }).then(getMovies).then((movies) => {
-//     console.log('Here are all the movies: ' + movies);
-//     movies.forEach(({title, rating}) => {
-//         console.log(`title:${title} - rating: ${rating}`);
+    'title': `${title}`,
+    'rating': 100
+})
+
+    .then(getMovies)
+    .then((movies) => {
+        console.log('Here are all the movies: ' + movies);
+        movies.forEach(({title, rating, id}) => {
+            console.log(`title:${title} - rating: ${rating} - id ${id}`);
+        });
+    }).catch((error) => {
+    alert('Oh no! Something went wrong.\nCheck the console for details.');
+    console.log(error);
+});
+
+
+
+});
+///////////////////////////
+//////CREATE MOVIE BTN/////
+//////////////////////////
+
+//Click listener for the submit button
+// const addSubmitBtnListener = () => {
+//     $('#submit').click(function () {
+//         //Create new movie object
+//         let newMovie = {
+//             title: $('#movie-name').val(),
+//             rating: $('#movie-rating').val(),
+//         };
+//         console.log(newMovie);
+//         //Add the movie to the db
+//         createMovie((newMovie)
+//             .then(() => {
+//             }));
 //     });
-// }).catch((error) => {
-//     alert('Oh no! Something went wrong.\nCheck the console for details.');
-//     console.log(error);
+// // };
+// addSubmitBtnListener();
+// $('#search-button').click(function () {
+//     let newMovie = $('#search').val();
+//     console.log(createMovie(newMovie));
+// $('#card-container').append(`<div class="card">
+//     <h6>${title}</h6>
+//     <p>${rating}️️</p>
+//     <div class="buttons">
+//         <button class="gear">⚙️</button>
+//         <button class="trash">🗑</button>
+//     </div>
+// </div>`)
 // });
 
 
@@ -88,18 +125,18 @@ getMovie(1)
 //////PATCH MOVIE/////
 ///////////////////////
 
-patchMovie({
-    "title": "Darjeeling Limited",
-    "rating": "5"
-}, 3).then(getMovies).then((movies) => {
-    console.log('Here are all the movies:');
-    movies.forEach(({title, rating}) => {
-        console.log(`${title}, ${rating}`);
-    });
-}).catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.');
-    console.log(error);
-});
+// patchMovie({
+//     "title": "Darjeeling Limited",
+//     "rating": "5"
+// }, 3).then(getMovies).then((movies) => {
+//     console.log('Here are all the movies:');
+//     movies.forEach(({title, rating}) => {
+//         console.log(`${title}, ${rating}`);
+//     });
+// }).catch((error) => {
+//     alert('Oh no! Something went wrong.\nCheck the console for details.');
+//     console.log(error);
+// });
 
 ///////////////////////
 //////DELETE MOVIE/////
@@ -115,7 +152,6 @@ patchMovie({
 //     alert('Oh no! Something went wrong.\nCheck the console for details.');
 //     console.log(error);
 // });
-
 
 
 /////////////////////////////////

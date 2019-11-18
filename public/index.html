@@ -22,9 +22,10 @@
         <img id="logo" src="img/groovyMovies.png" alt="">
     </div>
 </nav>
-<form onsubmit="" class="search-form">
-    <label for="search" class="screen-reader-text">Search</label>
-    <input id="search"
+<form onsubmit="event.preventDefault();" action="" class="search-form">
+    <label for="title" class="screen-reader-text">Search</label>
+
+    <input name="title" id="title"
            type="search" class="search-input" placeholder="Search for a movie">
     <button class="search-button"><i class="material-icons">local_movies</i></button>
 </form>
@@ -142,6 +143,11 @@
     // $(document).ready(function () {
     //     // $('.sidenav').sidenav();
     // });
+    // $('form').submit(function(){
+    //     let input = $('#search').val();
+    //     $('p').append(input);
+    //     return false;
+    // })
 </script>
 
 </body>
