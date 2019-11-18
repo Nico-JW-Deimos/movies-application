@@ -19,7 +19,11 @@ import 'materialize-css/js/sidenav.js'
 import M from 'materialize-css/dist/js/materialize.js'
 
 ///////////API KEY///////////////////////////////////
-const omdb = 'http://www.omdbapi.com/?apikey=782d1187&t=';
+// const omdb = `http://www.omdbapi.com/?&apikey=782d1187t=`;
+// let title = `${title}`;
+// console.log(omdb);
+// apikey=782d1187&`;
+
 
 const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./api.js');
 
@@ -27,32 +31,10 @@ var elems = document.querySelectorAll('.sidenav');
 var instances = M.Sidenav.init(elems);
 
 
-// $(document).ready(function () {
-// $('.sidenav').sidenav();
-//
-// })
 
 
-$(document).ready(function () {
-    $('#logo').click().css('padding', '4em')
-});
+// $('#logo').click().css('padding', '4em');
 
-
-//////////////////////////////
-//////search through api//////
-/////////////////////////////
-// omdb.search('saw', function(err, movies) {
-//     if (err) {
-//         return console.error(err);
-//     }
-//
-//     if (movies.length < 1) {
-//         return console.log('No movies were found!');
-//     }
-//
-//     movies.forEach(function (movie) {
-//         console.log('%s (%d)', movie.title, movie.year);
-//     });
 
 ////////////////////////
 //////GET MOVIES////////
@@ -76,7 +58,7 @@ getMovies()
 
 getMovie(1)
     .then((movie) => {
-        console.log('Here is the first movie: ');
+        // console.log('Here is the first movie: ');
         console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
 
     })
@@ -89,17 +71,17 @@ getMovie(1)
 //////CREATE MOVIE/////
 ///////////////////////
 
-createMovie({
-
-}).then(getMovies).then((movies) => {
-    // console.log('Here are all the movies: ' + movies);
-    movies.forEach(({title, rating}) => {
-        console.log(`title:${title} - rating: ${rating}`);
-    });
-}).catch((error) => {
-    alert('Oh no! Something went wrong.\nCheck the console for details.');
-    console.log(error);
-});
+// createMovie({
+//
+// }).then(getMovies).then((movies) => {
+//     console.log('Here are all the movies: ' + movies);
+//     movies.forEach(({title, rating}) => {
+//         console.log(`title:${title} - rating: ${rating}`);
+//     });
+// }).catch((error) => {
+//     alert('Oh no! Something went wrong.\nCheck the console for details.');
+//     console.log(error);
+// });
 
 
 ///////////////////////
@@ -125,7 +107,7 @@ patchMovie({
 
 
 // deleteMovie(4).then(getMovies).then((movies) => {
-//     console.log('Here are all the books:');
+//     console.log('Here are all the movies:');
 //     movies.forEach(({title, rating}) => {
 //         console.log(`${title} ${rating}`);
 //     });
@@ -135,46 +117,37 @@ patchMovie({
 // });
 
 
-// getMovieKey()
-//     .then((movies) => {
-//         console.log('Here are all the movies:');
-//         movies.forEach(({title, rating, id}) => {
-//             console.log(`id#${id} - ${title} - rating: ${rating}`);
-//         });
-//     }).catch((error) => {
-//     alert('Oh no! Something went wrong.\nCheck the console for details.');
-//     console.log(error);
-// });
 
 /////////////////////////////////
 ////////SEARCH FEATURE//////////
 ///////////////////////////////
-$(document).ready(function () {
-    // $('#search-button').click(function () {
-    //     let input = $("#search").val();
-    //     console.log(input);
-    //     fetch(omdb + input)
-    //         .then((success) => {
-    //             success.json()
-    //         })
-    //         .then((movies) => {
-    //             console.log(movies);
-    //             let content = "<div class='card'>";
-    //             content += '<img id="logo" src= "'+ movies.poster + '" alt="">';
-    //             content += movies.title;
-    //             content += '<br>';
-    //             content += movies.released;
-    //             content += '<br>';
-    //             content += movies.plot;
-    //             content += "</div>";
-    //
-    //             $('#card').append(content);
-    //         })
-    //         .catch((error) => {
-    //             console.log(error)
-    //         });
-    // });
-});
+
+// $(document).ready(function () {
+//     $('#search-button').click(function () {
+//         let input = $("#search").val();
+//         console.log(input);
+//         fetch(getMovie + input).done
+//             .then((success) => {
+//                 success.json()
+//             })
+//             .then((movies) => {
+//                 console.log(movies);
+//                 let content = "<div class='card'>";
+//                 content += '<img id="logo" src= "'+ movies.poster + '" alt="">';
+//                 content += movies.title;
+//                 content += '<br>';
+//                 content += movies.released;
+//                 content += '<br>';
+//                 content += movies.plot;
+//                 content += "</div>";
+//
+//                 $('#card').append(content);
+//             })
+//             .catch((error) => {
+//                 console.log(error)
+//             });
+//     });
+// });
 
 
 

@@ -16,16 +16,44 @@
       "rating": "5"
     },
     {
-      "id": 4
+      "id": 4,
+      "title": "Limitless",
+      "rating": "4"
     },
     {
-      "id": 5
+      "id": 5,
+      "title": "Instructions Not Included",
+      "rating": "5"
     },
     {
-      "id": 6
+      "id": 6,
+      "title": "Persepolis",
+      "rating": "3"
     },
     {
-      "id": 7
+      "id": 7,
+      "title": "Good Fellas",
+      "rating": "3"
+    },
+    {
+      "id": 8,
+      "title": "Cloud Atlas",
+      "rating": "4"
+    },
+    {
+      "id": 9,
+      "title": "The Life and Times of Frida Kahlo",
+      "rating": "4"
+    },
+    {
+      "id": 10,
+      "title": "Vanilla Sky",
+      "rating": "4"
+    },
+    {
+      "id": 11,
+      "title": "Brother Where Art Thou",
+      "rating": "5"
     }
   ]
 }

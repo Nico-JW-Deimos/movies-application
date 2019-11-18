@@ -8,17 +8,16 @@ module.exports = {
     return fetch(`/api/movies/${id}`)
         .then(response => response.json())
   },
-
-  createMovie: (movie) => {
-    return fetch('/api/movies', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/db.json'
-      },
-      body: JSON.stringify(movie)
-    })
-
-  },
+  //
+  // createMovie: (movie) => {
+  //   return fetch('/api/movies', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/db.json'
+  //     },
+  //     body: JSON.stringify(movie)
+  //   })
+  // },
   patchMovie : (movie, id) => {
     return fetch(`api/movies/${id}`, {
       method: 'PATCH',
