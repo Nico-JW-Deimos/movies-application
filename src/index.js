@@ -57,30 +57,31 @@ getMovies()
                 <p>${rating}️️</p>
                 <div class="buttons">
                 <button class="gear" data-toggle="modal" data-target="#exampleModal">⚙️</button>
-                <button class="trash">🗑</button>
+                <button id = "${title}" class="trash">🗑</button>
                 </div>
-                </div><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Movie:</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <input name="changeTitle" id="changeTitle"
-           type="search" class="search-input" placeholder="Change Title">
-           <input name="changeRating" id="changeRating"
-           type="search" class="search-input" placeholder="Change Rating">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>`);
+                </div>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Movie:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                <form onsubmit="" action="" class="submit-form">
+                    <input name="changeTitle" id="changeTitle" type="search" class="search-input" placeholder="Change Title">
+                    <input name="changeRating" id="changeRating" type="search" class="search-input" placeholder="Change Rating">
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                
+                </div>
+                </div>
+                </div>`);
 
             });
 
@@ -97,7 +98,7 @@ getMovie(1)
     .then((movie) => {
         // console.log('Here is the first movie: ');
         // console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
-
+console.log(movie);
     })
     .catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.');
@@ -107,12 +108,6 @@ getMovie(1)
 ///////////////////////////////////
 //////CREATE MOVIE&&LOAD MOVIE/////
 //////////////////////////////////
-// const stars = () => {
-//     if (rating.val() = 5){
-//         return ⭐️️⭐️️⭐️️⭐️️⭐
-//     }
-//
-// };
 const loadMovies = () => {
     $('#theLoader').show();
 
@@ -122,7 +117,7 @@ const loadMovies = () => {
             let newMovie = {
                 'title': title.val(),
                 'image': "undef.jpg",
-                'rating': "?"
+                'rating': "⭐️️⭐️️⭐",
             };
 
 
@@ -133,17 +128,41 @@ const loadMovies = () => {
                     movies.forEach(({title, rating, id}) => {
                         console.log(`title:${title} - rating: ${rating} - id ${id}`);
                     });
-                })
-                .catch((error) => {
+                });
+                // .catch((error) => {
+                //     alert('Oh no! Something went wrong.\nCheck the console for details.');
+                //     console.log(error);
+                // });
+            // addDeleteBtnListener();
+
+            ///////////////////////
+            //////PATCH MOVIE/////
+            /////////////////////
+            $('.gear').click(function () {
+                $('.btn-primary').click(function () {
+                    patchMovie({
+                        "title": $('#changeTitle').val(),
+                        "rating": $('#changeRating').val()
+                    }, 1)
+                        .then((movie) => {
+                            console.log(movie);
+                        })
+                        .then((movies) => {
+                            console.log(movies);
+                            loadMovies();
+                        });
+
+                }).catch((error) => {
                     alert('Oh no! Something went wrong.\nCheck the console for details.');
                     console.log(error);
                 });
+            });
         });
     });
-
 };
 
 loadMovies();
+
 
 
 ///////////////////////////
@@ -173,66 +192,60 @@ loadMovies();
 ///////////////////////
 //////PATCH MOVIE/////
 ///////////////////////
-// $(document).ready(function () {
 
-    const eventListener = $('.gear').click(function () {
-        $('.btn-primary').click(function () {
-
-            patchMovie({
-
-                "title": $('#changeTitle').val(),
-                "rating": $('#changeRating').val()
-
-            }, 1)
-                .then((movies) => {
-                    console.log(movies.title).val()
-                    console.log(movies.rating).val()
-                })
-                .then((movies) => {
-
-                    console.log(movies);
-                    loadMovies();
-                });
-
-        }).catch((error) => {
-            alert('Oh no! Something went wrong.\nCheck the console for details.');
-            console.log(error);
-        });
-
-    });
-
+// const eventListener = $('.gear').click(function () {
+//     $('.btn-primary').click(function () {
+//
+//         patchMovie({
+//
+//             "title": $('#changeTitle').val(),
+//             "rating": $('#changeRating').val()
+//
+//         }, 1)
+//             .then((movies) => {
+//                 console.log(movies.title).val();
+//                 console.log(movies.rating).val();
+//             })
+//             .then((movies) => {
+//
+//                 console.log(movies);
+//                 loadMovies();
+//             });
+//
+//     }).catch((error) => {
+//         alert('Oh no! Something went wrong.\nCheck the console for details.');
+//         console.log(error);
+//     });
+//
 // });
 
 
-// const addEditBtnListener = function () {
-//     $('.btn-primary').click(function () {
-//         //disable the edit button
-//        let changedMovies = {
-//            "title" : $('#changeTitle').val(),
-//            "rating" : $('#changeRating').val()
-//        };
-//
-//
-//
-//
-//     });
-// };
+
 ///////////////////////
 //////DELETE MOVIE/////
 ///////////////////////
 
 
-// deleteMovie().then(getMovies).then((movies) => {
-//     console.log('Here are all the movies:');
-//     movies.forEach(({title, rating}) => {
-//         console.log(`${title} ${rating}`);
-//     });
-//     addDeleteBtnListener();
+// deleteMovie()
+//     .then((movies) => {
+//         console.log(movies);
 //
+//         deleteMovie(parseInt($(this).attr()));
 // }).catch((error) => {
 //     alert('Oh no! Something went wrong.\nCheck the console for details.');
 //     console.log(error);
 // });
+//
+//
+// const addDeleteBtnListener = function () {
+//     $('.trash').click(function () {
+//         //Delete the move from the db using the id from the button
+//
+//         //Load the current movie db
+//         loadMovies();
+//     })
+// };
+
 
 
 /////////////////////////////////
@@ -272,11 +285,12 @@ loadMovies();
 
 // const addDeleteBtnListener = function() {
 //     $('.trash').click(function () {
-//         $('.cardOne').hide();
+//         $('.card').hide();
 //         deleteMovie(parseInt($(this).attr('id')))
 //     });
 //
 // };
+// addDeleteBtnListener();
 
 
 
