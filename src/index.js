@@ -63,7 +63,7 @@ getMovies()
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Movie:</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -93,16 +93,16 @@ getMovies()
 //////GET ONE MOVIE/////
 ////////////////////////
 
-// getMovie(1)
-//     .then((movie) => {
-//         // console.log('Here is the first movie: ');
-//         console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
-//
-//     })
-//     .catch((error) => {
-//         alert('Oh no! Something went wrong.\nCheck the console for details.');
-//         console.log(error);
-//     });
+getMovie(1)
+    .then((movie) => {
+        // console.log('Here is the first movie: ');
+        // console.log(`id#${movie.id} - ${movie.title} - rating: ${movie.rating}`);
+
+    })
+    .catch((error) => {
+        alert('Oh no! Something went wrong.\nCheck the console for details.');
+        console.log(error);
+    });
 
 ///////////////////////////////////
 //////CREATE MOVIE&&LOAD MOVIE/////
@@ -114,7 +114,7 @@ getMovies()
 //
 // };
 const loadMovies = () => {
-
+    $('#theLoader').show();
 
     const title = $('#title').val(function () {
         $('#newMovie').click(function () {
@@ -140,6 +140,7 @@ const loadMovies = () => {
                 });
         });
     });
+
 };
 
 loadMovies();
@@ -172,20 +173,50 @@ loadMovies();
 ///////////////////////
 //////PATCH MOVIE/////
 ///////////////////////
+// $(document).ready(function () {
 
-//         patchMovie({
-//             "title": "Darjeeling Limited",
-//             "rating": "5"
-//         }, 3).then(getMovies).then((movies) => {
-//             console.log('Here are all the movies:');
-//             movies.forEach(({title, rating}) => {
-//                 console.log(`${title}, ${rating}`);
-//             });
-//         }).catch((error) => {
-//             alert('Oh no! Something went wrong.\nCheck the console for details.');
-//             console.log(error);
-//         });
+    const eventListener = $('.gear').click(function () {
+        $('.btn-primary').click(function () {
 
+            patchMovie({
+
+                "title": $('#changeTitle').val(),
+                "rating": $('#changeRating').val()
+
+            }, 1)
+                .then((movies) => {
+                    console.log(movies.title).val()
+                    console.log(movies.rating).val()
+                })
+                .then((movies) => {
+
+                    console.log(movies);
+                    loadMovies();
+                });
+
+        }).catch((error) => {
+            alert('Oh no! Something went wrong.\nCheck the console for details.');
+            console.log(error);
+        });
+
+    });
+
+// });
+
+
+// const addEditBtnListener = function () {
+//     $('.btn-primary').click(function () {
+//         //disable the edit button
+//        let changedMovies = {
+//            "title" : $('#changeTitle').val(),
+//            "rating" : $('#changeRating').val()
+//        };
+//
+//
+//
+//
+//     });
+// };
 ///////////////////////
 //////DELETE MOVIE/////
 ///////////////////////
@@ -247,11 +278,5 @@ loadMovies();
 //
 // };
 
-$('.btn-primary').click(function () {
-    newMovie = {
-            title: $('.changeTitle').val(),
-            rating: $('.changeRating').val(),
-        };
 
-});
 
