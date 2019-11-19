@@ -13,123 +13,142 @@
     <title>Groovy Movies</title>
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
+<style>
+    .loader {
+        border: 16px solid #f3f3f3; /* Light grey */
+        border-top: 16px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
 <body>
+
 <!------------------------------------------navbar----------------------------------------------------------------------->
 <nav class="nav-extended">
     <div class="nav-wrapper">
         <img id="logo" src="img/groovyMovies.png" alt="">
     </div>
 </nav>
-<form onsubmit="event.preventDefault();" action="" class="search-form">
+<form onsubmit="" action="" class="search-form">
     <label for="title" class="screen-reader-text">Add a movie</label>
 
     <input name="title" id="title"
            type="search" class="search-input" placeholder="Add a movie">
-    <button class="search-button"><i class="material-icons">local_movies</i></button>
+    <button class="search-button" id="newMovie"><i class="material-icons">local_movies</i></button>
 </form>
-<!--cards------------------------------------------------------------------------------------------------------------->
-<div id="card-container">
-    <div class="card cardOne" >
-        <h6>Casablanca</h6>
-        <img src="img/casaB.jpg" alt="">
-        <p>⭐️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card cardTwo">
-        <h6>Star Wars: A New Hope</h6>
-        <img src="img/starwars.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>The Darjeeling Limited</h6>
-        <img src="img/darj.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>Limitless</h6>
-        <img src="img/limit.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>Instructions Not Included</h6>
-        <img src="img/instructions.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>Persepolis</h6>
-        <img src="img/pers.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>Good Fellas</h6>
-        <img src="img/goodfellas.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>Cloud Atlas</h6>
-        <img src="img/cloud.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>The Life and Times of Frida Kahlo</h6>
-        <img src="img/frida.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>Vanilla Sky</h6>
-        <img src="img/vanilla.jpg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-    <div class="card">
-        <h6>O Brother, Where Art Thou?</h6>
-        <img src="img/brother.jpeg" alt="">
-        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>
-        <div class="buttons">
-            <button class="gear">⚙️</button>
-            <button class="trash">🗑</button>
-        </div>
-    </div>
-</div>
 
+
+
+<div id="card-container">
+<!--    <div class="card cardOne" >-->
+<!--        <h6>Casablanca</h6>-->
+<!--        <img src="img/casaB.jpg" alt="">-->
+<!--        <p>⭐️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card cardTwo">-->
+<!--        <h6>Star Wars: A New Hope</h6>-->
+<!--        <img src="img/starwars.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>The Darjeeling Limited</h6>-->
+<!--        <img src="img/darj.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>Limitless</h6>-->
+<!--        <img src="img/limit.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>Instructions Not Included</h6>-->
+<!--        <img src="img/instructions.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>Persepolis</h6>-->
+<!--        <img src="img/pers.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>Good Fellas</h6>-->
+<!--        <img src="img/goodfellas.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>Cloud Atlas</h6>-->
+<!--        <img src="img/cloud.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>The Life and Times of Frida Kahlo</h6>-->
+<!--        <img src="img/frida.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>Vanilla Sky</h6>-->
+<!--        <img src="img/vanilla.jpg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="card">-->
+<!--        <h6>O Brother, Where Art Thou?</h6>-->
+<!--        <img src="img/brother.jpeg" alt="">-->
+<!--        <p>⭐️️⭐️️⭐️️⭐️️⭐️️</p>-->
+<!--        <div class="buttons">-->
+<!--            <button class="gear">⚙️</button>-->
+<!--            <button class="trash">🗑</button>-->
+<!--        </div>-->
+<!--    </div>-->
+
+</div>
+<div class="loader" id="theLoader"></div>
 
 <!--Import scripts-->
 <!-- Compiled and minified JavaScript -->
@@ -137,14 +156,7 @@
 
 <script src="../main.js"></script>
 <script>
-    // $(document).ready(function () {
-    //     // $('.sidenav').sidenav();
-    // });
-    // $('form').submit(function(){
-    //     let input = $('#search').val();
-    //     $('p').append(input);
-    //     return false;
-    // })
+
 </script>
 
 </body>

@@ -2,58 +2,73 @@
   "movies": [
     {
       "title": "Casablanca",
-      "rating": "4",
+      "rating": "⭐️⭐️️⭐️️⭐",
+      "image": "casaB.jpg",
       "id": 1
     },
     {
       "title": "Star Wars: A New Hope",
-      "rating": "5",
+      "rating": "⭐️️⭐️️⭐️️⭐️️⭐",
+      "image": "starwars.jpg",
       "id": 2
     },
     {
       "id": 3,
       "title": "Darjeeling Limited",
-      "rating": "5"
+      "image": "darj.jpg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️⭐"
     },
     {
       "id": 4,
       "title": "Limitless",
-      "rating": "4"
+      "image": "limit.jpg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️"
     },
     {
       "id": 5,
       "title": "Instructions Not Included",
-      "rating": "5"
+      "image": "instructions.jpg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️⭐"
     },
     {
       "id": 6,
       "title": "Persepolis",
-      "rating": "4"
+      "image": "pers.jpg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️"
     },
     {
       "id": 7,
       "title": "Good Fellas",
-      "rating": "5"
+      "image": "goodfellas.jpg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️⭐"
     },
     {
       "id": 8,
       "title": "Cloud Atlas",
-      "rating": "4"
+      "image": "cloud.jpg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️"
     },
     {
       "id": 9,
       "title": "The Life and Times of Frida Kahlo",
-      "rating": "4"
+      "image": "frida.jpg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️"
     },
     {
       "id": 10,
       "title": "Vanilla Sky",
-      "rating": "4"
+      "image": "vanilla.jpg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️"
     },
     {
       "id": 11,
       "title": "Oh Brother Where Art Thou",
-      "rating": "5"
+      "image": "brother.jpeg",
+      "rating": "⭐️️⭐️️⭐️️⭐️️⭐"
+    },
+    {
+      "title": "",
+      "id": 12
     }
   ]
 }
