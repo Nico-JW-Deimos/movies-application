@@ -13,6 +13,7 @@
 
 const $ = require('jquery');
 
+
 // import 'materialize-css/dist/css/materialize.min.css'
 // import 'materialize-css/dist/js/materialize.js'
 // import 'materialize-css/js/sidenav.js'
@@ -55,10 +56,31 @@ getMovies()
                 <img src="img/${image}" alt="">
                 <p>${rating}️️</p>
                 <div class="buttons">
-                <button class="gear">⚙️</button>
+                <button class="gear" data-toggle="modal" data-target="#exampleModal">⚙️</button>
                 <button class="trash">🗑</button>
                 </div>
-                </div>`);
+                </div><div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input name="changeTitle" id="changeTitle"
+           type="search" class="search-input" placeholder="Change Title">
+           <input name="changeRating" id="changeRating"
+           type="search" class="search-input" placeholder="Change Rating">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>`);
 
             });
 
@@ -225,6 +247,11 @@ loadMovies();
 //
 // };
 
+$('.btn-primary').click(function () {
+    newMovie = {
+            title: $('.changeTitle').val(),
+            rating: $('.changeRating').val(),
+        };
 
-
+});
 
