@@ -18,15 +18,15 @@ module.exports = {
       body: JSON.stringify(movie),
     })
   },
-//   patchMovie : (movie, id) => {
-//     return fetch(`api/movies/${id}`, {
-//       method: 'PATCH',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(movie),
-//     })
-//   },
+  // patchMovie : (movie, id) => {
+  //   return fetch(`api/movies/${id}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(movie),
+  //   })
+  // },
 //   deleteMovie : (id) => {
 //     return fetch(`api/movies/${id}`, {
 //       method: 'DELETE',

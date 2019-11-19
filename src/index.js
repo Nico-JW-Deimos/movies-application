@@ -43,6 +43,7 @@ const {getMovie, getMovies, createMovie, patchMovie, deleteMovie} = require('./a
 //     console.log(error);
 // });
 
+
 getMovies()
     .then((movies) => {
         let showMovies = (movies) => {
@@ -81,52 +82,45 @@ getMovies()
 //         console.log(error);
 //     });
 
-///////////////////////
-//////CREATE MOVIE/////
-///////////////////////
-function loadMovies() {
+///////////////////////////////////
+//////CREATE MOVIE&&LOAD MOVIE/////
+//////////////////////////////////
+// const stars = () => {
+//     if (rating.val() = 5){
+//         return ⭐️️⭐️️⭐️️⭐️️⭐
+//     }
+//
+// };
+const loadMovies = () => {
 
 
-    let title = $('#title').click(function () {
+    const title = $('#title').val(function () {
+        $('#newMovie').click(function () {
 
-        createMovie({
+            let newMovie = {
+                'title': title.val(),
+                'image': "undef.jpg",
+                'rating': "?"
+            };
 
-            'title': title.val(),
 
-        })
-
-            .then(getMovies)
-            .then((movies) => {
-                console.log('Here are all the movies: ' + movies);
-                movies.forEach(({title, rating, id}) => {
-                    console.log(`title:${title} - rating: ${rating} - id ${id}`);
+            createMovie(newMovie)
+                .then(getMovies)
+                .then((movies) => {
+                    console.log('Here are all the movies plus new movie: ' + movies);
+                    movies.forEach(({title, rating, id}) => {
+                        console.log(`title:${title} - rating: ${rating} - id ${id}`);
+                    });
+                })
+                .catch((error) => {
+                    alert('Oh no! Something went wrong.\nCheck the console for details.');
+                    console.log(error);
                 });
-            }).catch((error) => {
-            alert('Oh no! Something went wrong.\nCheck the console for details.');
-            console.log(error);
-
-
         });
     });
+};
 
-}
 loadMovies();
-//Click listener for the submit button
-// const addSubmitBtnListener = function () {
-//     $('#submit').click(function () {
-//         //Create new movie object
-//         let newMovie = {
-//             title: $('#movie-name').val(),
-//             rating: $('#movie-rating').val(),
-//             genre: $('#movie-genre').val()
-//         };
-//         //Add the movie to the db
-//         addMovie(newMovie).then(() => {
-//             //Dynamically reload the page
-//             loadMovies();
-//         });
-//     });
-// };
 
 
 ///////////////////////////
@@ -156,7 +150,7 @@ loadMovies();
 ///////////////////////
 //////PATCH MOVIE/////
 ///////////////////////
-//
+
 //         patchMovie({
 //             "title": "Darjeeling Limited",
 //             "rating": "5"

@@ -67,7 +67,9 @@
       "rating": "⭐️️⭐️️⭐️️⭐️️⭐"
     },
     {
-      "title": "",
+      "title": "new movie",
+      "image": "undef.jpg",
+      "rating": "?",
       "id": 12
     }
   ]
